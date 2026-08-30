@@ -15,15 +15,21 @@ export function PageHero({
   title: string;
   description?: string;
   badge?: string;
-  image: string;
-  imageAlt: string;
+  image?: string;
+  imageAlt?: string;
   primary?: { label: string; href: string };
   secondary?: { label: string; href: string };
 }) {
   return (
     <section className="relative min-h-[48vh] overflow-hidden bg-bravo-navy">
-      <Image src={image} alt={imageAlt} fill className="object-cover" sizes="100vw" />
-      <div className="absolute inset-0 bg-bravo-navy/72" />
+      {image && imageAlt ? (
+        <>
+          <Image src={image} alt={imageAlt} fill className="object-cover" sizes="100vw" />
+          <div className="absolute inset-0 bg-bravo-navy/72" />
+        </>
+      ) : (
+        <div className="absolute inset-0 bg-gradient-to-br from-bravo-navy via-bravo-blue to-bravo-navy" />
+      )}
       <div className="relative mx-auto flex min-h-[48vh] max-w-7xl items-center px-4 py-20 sm:px-6 lg:py-28">
         <div className="max-w-3xl">
           {badge ? (

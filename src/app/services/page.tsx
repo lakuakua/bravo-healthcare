@@ -3,10 +3,10 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/sections/PageHero";
 import { CTASection } from "@/components/sections/CTASection";
+import { InsuranceNotice } from "@/components/sections/InsuranceNotice";
 import { ReferralCta } from "@/components/home/ReferralCta";
 import { ServiceGrid } from "@/components/ui/ServiceCard";
 import { company, divisions } from "@/data/company";
-import { images } from "@/data/images";
 import { ctas } from "@/data/navigation";
 import { services } from "@/data/services";
 
@@ -22,8 +22,6 @@ export default function ServicesPage() {
         eyebrow="Our Services"
         title="Bravo Home Health and Bravo Residential"
         description={company.welcome}
-        image={images.familyHome}
-        imageAlt="Compassionate care in home and residential settings"
         primary={ctas.exploreHomeHealth}
         secondary={ctas.programUpdates}
       />
@@ -64,10 +62,11 @@ export default function ServicesPage() {
           <h2 className="text-3xl">Home Health Services</h2>
           <p className="mt-4 max-w-3xl text-lg text-text-gray">{company.homeHealthServicesNote}</p>
           <div className="mt-10">
-            <ServiceGrid items={services} />
+            <ServiceGrid items={services} showImages={false} />
           </div>
         </div>
       </section>
+      <InsuranceNotice />
       <ReferralCta />
       <CTASection title="Let's Discuss How Bravo Healthcare Can Help." primary={ctas.contactUs} />
     </>

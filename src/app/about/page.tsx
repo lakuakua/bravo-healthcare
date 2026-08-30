@@ -3,6 +3,7 @@ import Image from "next/image";
 import { PageHero } from "@/components/sections/PageHero";
 import { MissionSection } from "@/components/sections/MissionSection";
 import { CTASection } from "@/components/sections/CTASection";
+import { InsuranceNotice } from "@/components/sections/InsuranceNotice";
 import { ServiceArea } from "@/components/home/ServiceArea";
 import { company, divisions } from "@/data/company";
 import { images } from "@/data/images";
@@ -20,8 +21,6 @@ export default function AboutPage() {
         eyebrow="About Bravo Healthcare"
         title="Welcome to Bravo Healthcare"
         description={company.welcome}
-        image={images.familyHome}
-        imageAlt="A caregiver offering personal support to a Bravo Healthcare client"
         primary={ctas.contactUs}
       />
       <section className="px-4 py-16 sm:px-6 lg:py-24">
@@ -36,14 +35,10 @@ export default function AboutPage() {
                 sizes="(min-width: 1024px) 40vw, 100vw"
               />
             </div>
-            <div className="absolute -right-4 -bottom-8 hidden w-52 overflow-hidden rounded-3xl border-8 border-white shadow-lg sm:block">
-              <Image
-                src={images.familyHome}
-                alt="A supportive care conversation"
-                width={416}
-                height={312}
-                className="h-36 w-full object-cover"
-              />
+            <div className="absolute -right-4 -bottom-8 hidden w-52 overflow-hidden rounded-3xl border-8 border-white bg-pale-teal shadow-lg sm:block">
+              <div className="flex h-36 w-full items-center justify-center px-4 text-center">
+                <p className="text-sm font-semibold text-bravo-navy">{divisions.residential.badge}</p>
+              </div>
             </div>
           </div>
           <div>
@@ -72,6 +67,7 @@ export default function AboutPage() {
         </div>
       </section>
       <MissionSection />
+      <InsuranceNotice />
       <ServiceArea />
       <CTASection title="Let's Discuss How Bravo Healthcare Can Help." primary={ctas.contactUs} />
     </>

@@ -3,9 +3,9 @@ import { PageHero } from "@/components/sections/PageHero";
 import { ReferralForm } from "@/components/forms/ReferralForm";
 import { ServiceArea } from "@/components/home/ServiceArea";
 import { CTASection } from "@/components/sections/CTASection";
+import { InsuranceNotice } from "@/components/sections/InsuranceNotice";
 import { ServiceGrid } from "@/components/ui/ServiceCard";
 import { company } from "@/data/company";
-import { images } from "@/data/images";
 import { ctas } from "@/data/navigation";
 import { services } from "@/data/services";
 
@@ -22,8 +22,6 @@ export default function ReferralsPage() {
       <PageHero
         title="Referrals"
         description={company.referralsNote}
-        image={images.hands}
-        imageAlt="A caregiver supporting a client during a home visit"
         primary={ctas.speakWithTeam}
       />
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
@@ -37,7 +35,7 @@ export default function ReferralsPage() {
         </ul>
         <h2 className="mt-14 text-3xl">Bravo Home Health Services</h2>
         <p className="mt-3 mb-8 text-text-gray">{company.homeHealthServicesNote}</p>
-        <ServiceGrid items={services} />
+        <ServiceGrid items={services} showImages={false} />
       </section>
       <section className="bg-off-white px-4 py-16 sm:px-6">
         <div className="mx-auto max-w-3xl rounded-3xl bg-white p-6 sm:p-8">
@@ -45,6 +43,7 @@ export default function ReferralsPage() {
           <ReferralForm />
         </div>
       </section>
+      <InsuranceNotice />
       <ServiceArea />
       <CTASection title="Speak With Our Team" primary={ctas.speakWithTeam} />
     </>

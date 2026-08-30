@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
-import { company, divisions } from "@/data/company";
+import { divisions, company } from "@/data/company";
 import { images } from "@/data/images";
 import { ctas } from "@/data/navigation";
 

@@ -4,8 +4,8 @@ export type Service = {
   shortDescription: string;
   fullDescription: string;
   icon: string;
-  image: string;
-  imageAlt: string;
+  image?: string;
+  imageAlt?: string;
   features: string[];
   category: string;
   availabilityDisclaimer?: string;
@@ -16,8 +16,6 @@ export type HomeHealthSection = {
   title: string;
   intro: string;
   icon: string;
-  image: string;
-  imageAlt: string;
   features?: string[];
   therapyTypes?: string[];
   closingNote?: string;

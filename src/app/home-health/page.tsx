@@ -6,7 +6,6 @@ import { InsuranceNotice } from "@/components/sections/InsuranceNotice";
 import { ReferralCta } from "@/components/home/ReferralCta";
 import { ServiceArea } from "@/components/home/ServiceArea";
 import { company, divisions } from "@/data/company";
-import { images } from "@/data/images";
 import { ctas } from "@/data/navigation";
 
 export const metadata: Metadata = {
@@ -21,8 +20,6 @@ export default function HomeHealthPage() {
         eyebrow={divisions.homeHealth.name}
         title={divisions.homeHealth.heading}
         description={divisions.homeHealth.description}
-        image={images.familyHome}
-        imageAlt="Compassionate home-based care in a supportive setting"
         primary={ctas.contactCareTeam}
         secondary={ctas.makeReferral}
       />

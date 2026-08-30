@@ -8,8 +8,6 @@ export const homeHealthSections: HomeHealthSection[] = [
     intro:
       "We provide skilled and extended-hour nursing care for children and adults with medical and complex care needs. Services may include:",
     icon: "stethoscope",
-    image: images.hands,
-    imageAlt: "Supportive in-home nursing care",
     features: [
       "Health assessments and vital-sign monitoring",
       "Medication administration and education",
@@ -26,8 +24,6 @@ export const homeHealthSections: HomeHealthSection[] = [
     title: "Personal Assistance Services",
     intro: "Our care professionals support daily living and independence through:",
     icon: "heart-handshake",
-    image: images.familyHome,
-    imageAlt: "Personal assistance in a home setting",
     features: [
       "Bathing, grooming, dressing, and toileting",
       "Mobility, transfers, and walking assistance",
@@ -43,8 +39,6 @@ export const homeHealthSections: HomeHealthSection[] = [
     title: "Therapy Services",
     intro: "When authorized and available, therapy services may include:",
     icon: "accessibility",
-    image: images.hands,
-    imageAlt: "Therapy support during a home care session",
     therapyTypes: ["Physical therapy", "Occupational therapy", "Speech-language pathology"],
     closingNote:
       "Therapy services are designed to help individuals improve or maintain mobility, communication, swallowing, strength, coordination, safety, and daily functioning.",
@@ -55,8 +49,6 @@ export const homeHealthSections: HomeHealthSection[] = [
     title: "Medical Social Services",
     intro: "Medical social services may assist individuals and families with:",
     icon: "users",
-    image: images.familyHome,
-    imageAlt: "A supportive conversation between a caregiver and client",
     features: [
       "Psychosocial assessments",
       "Community-resource identification",
@@ -69,7 +61,7 @@ export const homeHealthSections: HomeHealthSection[] = [
   },
 ];
 
-/** Card summaries for grids — links to /home-health# anchors */
+/** Card summaries — each card image is unique; skilled nursing uses icon only (photo on /home-health hero). */
 export const services: Service[] = [
   {
     slug: "skilled-private-duty-nursing",
@@ -79,8 +71,6 @@ export const services: Service[] = [
     fullDescription:
       "We provide skilled and extended-hour nursing care for children and adults with medical and complex care needs.",
     icon: "stethoscope",
-    image: images.hands,
-    imageAlt: "Supportive in-home nursing care",
     category: "nursing",
     features: homeHealthSections[0].features ?? [],
   },
@@ -91,7 +81,7 @@ export const services: Service[] = [
       "Daily living support that promotes independence, safety, comfort, and dignity at home.",
     fullDescription: "Our care professionals support daily living and independence.",
     icon: "heart-handshake",
-    image: images.familyHome,
+    image: images.personalAssistance,
     imageAlt: "Personal assistance in a home setting",
     category: "personal-assistance",
     features: homeHealthSections[1].features ?? [],
@@ -104,7 +94,7 @@ export const services: Service[] = [
     fullDescription:
       "When authorized and available, therapy services may include physical therapy, occupational therapy, and speech-language pathology.",
     icon: "accessibility",
-    image: images.hands,
+    image: images.therapy,
     imageAlt: "Therapy support during a home care session",
     category: "therapy",
     availabilityDisclaimer: "When authorized and available.",
@@ -117,8 +107,6 @@ export const services: Service[] = [
       "Support for individuals and families navigating resources, planning, and adjustment to care needs.",
     fullDescription: "Medical social services may assist individuals and families with:",
     icon: "users",
-    image: images.familyHome,
-    imageAlt: "A supportive conversation between a caregiver and client",
     category: "social",
     features: homeHealthSections[3].features ?? [],
   },
@@ -131,6 +119,7 @@ export const footerServices = [
   { label: "Personal Assistance Services", href: "/home-health#personal-assistance" },
   { label: "Therapy Services", href: "/home-health#therapy-services" },
   { label: "Medical Social Services", href: "/home-health#medical-social-services" },
+  { label: "Insurance & Payment", href: "/#insurance-and-payment" },
 ] as const;
 
 export function getService(slug: string) {

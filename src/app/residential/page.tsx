@@ -4,7 +4,6 @@ import { CTASection } from "@/components/sections/CTASection";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { ServiceArea } from "@/components/home/ServiceArea";
 import { company, divisions } from "@/data/company";
-import { images } from "@/data/images";
 import { ctas } from "@/data/navigation";
 
 export const metadata: Metadata = {
@@ -20,8 +19,7 @@ export default function ResidentialPage() {
         eyebrow={divisions.residential.name}
         title={divisions.residential.heading}
         description={divisions.residential.description}
-        image={images.residentialHome}
-        imageAlt="A welcoming home representing Bravo Residential, a program being developed"
+        primary={ctas.programUpdates}
       />
       <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
         <p className="mb-3 text-sm font-semibold tracking-[0.18em] text-bravo-teal uppercase">Coming Soon</p>
