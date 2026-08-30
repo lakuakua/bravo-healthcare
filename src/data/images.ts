@@ -1,6 +1,6 @@
 /**
- * Each photo is used exactly once across the site.
- * home-care.jpg (black male client) → homepage hero only.
+ * Site photography paths.
+ * home-care.jpg (black male client) is reserved for the homepage hero only.
  */
 export const images = {
   heroHomeCare: "/images/hero/home-care.jpg",

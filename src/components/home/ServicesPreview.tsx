@@ -13,8 +13,8 @@ export function ServicesPreview() {
     <section>
       <div className="relative overflow-hidden bg-bravo-navy">
         <Image
-          src={images.nursing}
-          alt="A caregiver providing in-home nursing support"
+          src={images.careTeam}
+          alt="A caregiver supporting a client during in-home care"
           fill
           className="object-cover object-left opacity-55 [mask-image:linear-gradient(to_right,black_0%,black_28%,transparent_88%)] [-webkit-mask-image:linear-gradient(to_right,black_0%,black_28%,transparent_88%)]"
           sizes="100vw"

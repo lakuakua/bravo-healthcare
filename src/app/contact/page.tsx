@@ -4,6 +4,7 @@ import { EmergencyNotice } from "@/components/ui/EmergencyNotice";
 import { InsuranceNotice } from "@/components/sections/InsuranceNotice";
 import { PageHero } from "@/components/sections/PageHero";
 import { company } from "@/data/company";
+import { images } from "@/data/images";
 import { serviceCounties } from "@/data/counties";
 
 export const metadata: Metadata = {
@@ -17,6 +18,8 @@ export default function ContactPage() {
       <PageHero
         title="Let's Discuss How Bravo Healthcare Can Help"
         description={company.contactIntro}
+        image={images.nursing}
+        imageAlt="A Bravo caregiver offering supportive home-based care"
       />
       <section className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2">
         <div>

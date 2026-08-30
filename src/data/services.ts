@@ -1,6 +1,25 @@
 import type { HomeHealthSection, Service } from "@/types";
 import { images } from "@/data/images";
 
+const sectionImages: Record<string, { image: string; imageAlt: string }> = {
+  "skilled-private-duty-nursing": {
+    image: images.nursing,
+    imageAlt: "A caregiver providing in-home nursing support",
+  },
+  "personal-assistance": {
+    image: images.personalAssistance,
+    imageAlt: "Daily living support in a home setting",
+  },
+  "therapy-services": {
+    image: images.therapy,
+    imageAlt: "Mobility support during a home therapy session",
+  },
+  "medical-social-services": {
+    image: images.careTeam,
+    imageAlt: "A caregiver supporting a client during a home visit",
+  },
+};
+
 export const homeHealthSections: HomeHealthSection[] = [
   {
     slug: "skilled-private-duty-nursing",
@@ -8,6 +27,7 @@ export const homeHealthSections: HomeHealthSection[] = [
     intro:
       "We provide skilled and extended-hour nursing care for children and adults with medical and complex care needs. Services may include:",
     icon: "stethoscope",
+    ...sectionImages["skilled-private-duty-nursing"],
     features: [
       "Health assessments and vital-sign monitoring",
       "Medication administration and education",
@@ -24,6 +44,7 @@ export const homeHealthSections: HomeHealthSection[] = [
     title: "Personal Assistance Services",
     intro: "Our care professionals support daily living and independence through:",
     icon: "heart-handshake",
+    ...sectionImages["personal-assistance"],
     features: [
       "Bathing, grooming, dressing, and toileting",
       "Mobility, transfers, and walking assistance",
@@ -39,6 +60,7 @@ export const homeHealthSections: HomeHealthSection[] = [
     title: "Therapy Services",
     intro: "When authorized and available, therapy services may include:",
     icon: "accessibility",
+    ...sectionImages["therapy-services"],
     therapyTypes: ["Physical therapy", "Occupational therapy", "Speech-language pathology"],
     closingNote:
       "Therapy services are designed to help individuals improve or maintain mobility, communication, swallowing, strength, coordination, safety, and daily functioning.",
@@ -49,6 +71,7 @@ export const homeHealthSections: HomeHealthSection[] = [
     title: "Medical Social Services",
     intro: "Medical social services may assist individuals and families with:",
     icon: "users",
+    ...sectionImages["medical-social-services"],
     features: [
       "Psychosocial assessments",
       "Community-resource identification",
@@ -61,56 +84,32 @@ export const homeHealthSections: HomeHealthSection[] = [
   },
 ];
 
-/** Card summaries — each card image is unique; skilled nursing uses icon only (photo on /home-health hero). */
-export const services: Service[] = [
-  {
-    slug: "skilled-private-duty-nursing",
-    title: "Skilled and Private Duty Nursing",
-    shortDescription:
-      "Skilled and extended-hour nursing care for children and adults with medical and complex care needs.",
-    fullDescription:
-      "We provide skilled and extended-hour nursing care for children and adults with medical and complex care needs.",
-    icon: "stethoscope",
-    category: "nursing",
-    features: homeHealthSections[0].features ?? [],
-  },
-  {
-    slug: "personal-assistance",
-    title: "Personal Assistance Services",
-    shortDescription:
-      "Daily living support that promotes independence, safety, comfort, and dignity at home.",
-    fullDescription: "Our care professionals support daily living and independence.",
-    icon: "heart-handshake",
-    image: images.personalAssistance,
-    imageAlt: "Personal assistance in a home setting",
-    category: "personal-assistance",
-    features: homeHealthSections[1].features ?? [],
-  },
-  {
-    slug: "therapy-services",
-    title: "Therapy Services",
-    shortDescription:
-      "Physical therapy, occupational therapy, and speech-language pathology when authorized and available.",
-    fullDescription:
-      "When authorized and available, therapy services may include physical therapy, occupational therapy, and speech-language pathology.",
-    icon: "accessibility",
-    image: images.therapy,
-    imageAlt: "Therapy support during a home care session",
-    category: "therapy",
-    availabilityDisclaimer: "When authorized and available.",
-    features: ["Physical therapy", "Occupational therapy", "Speech-language pathology"],
-  },
-  {
-    slug: "medical-social-services",
-    title: "Medical Social Services",
-    shortDescription:
-      "Support for individuals and families navigating resources, planning, and adjustment to care needs.",
-    fullDescription: "Medical social services may assist individuals and families with:",
-    icon: "users",
-    category: "social",
-    features: homeHealthSections[3].features ?? [],
-  },
-];
+export const services: Service[] = homeHealthSections.map((section) => ({
+  slug: section.slug,
+  title: section.title,
+  shortDescription:
+    section.slug === "skilled-private-duty-nursing"
+      ? "Skilled and extended-hour nursing care for children and adults with medical and complex care needs."
+      : section.slug === "personal-assistance"
+        ? "Daily living support that promotes independence, safety, comfort, and dignity at home."
+        : section.slug === "therapy-services"
+          ? "Physical therapy, occupational therapy, and speech-language pathology when authorized and available."
+          : "Support for individuals and families navigating resources, planning, and adjustment to care needs.",
+  fullDescription: section.intro,
+  icon: section.icon,
+  image: section.image,
+  imageAlt: section.imageAlt,
+  category:
+    section.slug === "skilled-private-duty-nursing"
+      ? "nursing"
+      : section.slug === "personal-assistance"
+        ? "personal-assistance"
+        : section.slug === "therapy-services"
+          ? "therapy"
+          : "social",
+  availabilityDisclaimer: section.availabilityDisclaimer,
+  features: section.features ?? section.therapyTypes ?? [],
+}));
 
 export const footerServices = [
   { label: "Bravo Home Health", href: "/home-health" },

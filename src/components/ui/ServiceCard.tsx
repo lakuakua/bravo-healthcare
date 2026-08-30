@@ -6,23 +6,15 @@ import type { Service } from "@/types";
 export function ServiceCard({ service }: { service: Service }) {
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-[0_12px_40px_rgba(1,42,98,0.08)]">
-      {service.image && service.imageAlt ? (
-        <div className="relative h-48">
-          <Image
-            src={service.image}
-            alt={service.imageAlt}
-            fill
-            className="object-cover"
-            sizes="(min-width: 1280px) 33vw, (min-width: 640px) 50vw, 100vw"
-          />
-        </div>
-      ) : (
-        <div className="flex h-48 items-center justify-center bg-pale-teal">
-          <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-bravo-teal shadow-sm">
-            <ServiceIcon name={service.icon} className="h-8 w-8" />
-          </div>
-        </div>
-      )}
+      <div className="relative h-48">
+        <Image
+          src={service.image}
+          alt={service.imageAlt}
+          fill
+          className="object-cover"
+          sizes="(min-width: 1280px) 33vw, (min-width: 640px) 50vw, 100vw"
+        />
+      </div>
       <div className="flex flex-1 flex-col p-7">
         <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-pale-teal text-bravo-teal">
           <ServiceIcon name={service.icon} className="h-5 w-5" />
@@ -43,14 +35,10 @@ export function ServiceCard({ service }: { service: Service }) {
   );
 }
 
-export function ServiceGrid({ items, showImages = true }: { items: Service[]; showImages?: boolean }) {
-  const displayItems = showImages
-    ? items
-    : items.map((item) => ({ ...item, image: undefined, imageAlt: undefined }));
-
+export function ServiceGrid({ items }: { items: Service[] }) {
   return (
     <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-      {displayItems.map((service) => (
+      {items.map((service) => (
         <ServiceCard key={service.slug} service={service} />
       ))}
     </div>
