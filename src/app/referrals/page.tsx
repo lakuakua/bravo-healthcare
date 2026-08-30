@@ -4,29 +4,25 @@ import { ReferralForm } from "@/components/forms/ReferralForm";
 import { ServiceArea } from "@/components/home/ServiceArea";
 import { CTASection } from "@/components/sections/CTASection";
 import { ServiceGrid } from "@/components/ui/ServiceCard";
+import { company } from "@/data/company";
+import { images } from "@/data/images";
 import { ctas } from "@/data/navigation";
 import { services } from "@/data/services";
 
 export const metadata: Metadata = {
   title: "Referrals",
-  description:
-    "Bravo Healthcare accepts referrals from hospitals, rehabilitation facilities, physicians, case managers, and other healthcare providers.",
+  description: company.referralsNote,
 };
 
 const who = ["Hospitals", "Rehabilitation facilities", "Physicians", "Case managers", "Healthcare providers"];
-const steps = [
-  { number: "01", title: "Submit a referral", detail: "Share the information needed to start a conversation." },
-  { number: "02", title: "Our team follows up", detail: "We review the request and contact the referral source." },
-  { number: "03", title: "Eligibility review", detail: "Needs, orders, eligibility, and authorization are considered." },
-];
 
 export default function ReferralsPage() {
   return (
     <>
       <PageHero
-        title="Make a Referral"
-        description="Bravo accepts referrals from hospitals, rehabilitation facilities, physicians, case managers, and other healthcare providers."
-        image="/images/about/care-team.jpg"
+        title="Referrals"
+        description={company.referralsNote}
+        image={images.hands}
         imageAlt="A caregiver supporting a client during a home visit"
         primary={ctas.speakWithTeam}
       />
@@ -39,21 +35,8 @@ export default function ReferralsPage() {
             </li>
           ))}
         </ul>
-        <h2 className="mt-14 text-3xl">Referral Process</h2>
-        <ol className="mt-6 grid gap-5 md:grid-cols-3">
-          {steps.map((step) => (
-            <li key={step.number} className="rounded-3xl border border-light-gray p-6">
-              <span className="font-heading text-3xl font-semibold text-bravo-teal">{step.number}</span>
-              <h3 className="mt-3 text-xl">{step.title}</h3>
-              <p className="mt-2 text-text-gray">{step.detail}</p>
-            </li>
-          ))}
-        </ol>
-        <h2 className="mt-14 text-3xl">Services Available</h2>
-        <p className="mt-3 mb-8 text-text-gray">
-          Requested services may include skilled nursing, private duty nursing, personal assistance,
-          therapy, and medical social services, based on assessed needs and authorization.
-        </p>
+        <h2 className="mt-14 text-3xl">Bravo Home Health Services</h2>
+        <p className="mt-3 mb-8 text-text-gray">{company.homeHealthServicesNote}</p>
         <ServiceGrid items={services} />
       </section>
       <section className="bg-off-white px-4 py-16 sm:px-6">

@@ -1,150 +1,142 @@
-import type { Service } from "@/types";
+import type { HomeHealthSection, Service } from "@/types";
+import { images } from "@/data/images";
 
+export const homeHealthSections: HomeHealthSection[] = [
+  {
+    slug: "skilled-private-duty-nursing",
+    title: "Skilled and Private Duty Nursing",
+    intro:
+      "We provide skilled and extended-hour nursing care for children and adults with medical and complex care needs. Services may include:",
+    icon: "stethoscope",
+    image: images.hands,
+    imageAlt: "Supportive in-home nursing care",
+    features: [
+      "Health assessments and vital-sign monitoring",
+      "Medication administration and education",
+      "Chronic disease, wound, and post-surgical care",
+      "Tracheostomy, ventilator, oxygen, and respiratory care",
+      "G-tube feeding, catheter, and ostomy care",
+      "Seizure, aspiration, infection, and skin precautions",
+      "Patient and caregiver education",
+      "Coordination with physicians and the healthcare team",
+    ],
+  },
+  {
+    slug: "personal-assistance",
+    title: "Personal Assistance Services",
+    intro: "Our care professionals support daily living and independence through:",
+    icon: "heart-handshake",
+    image: images.familyHome,
+    imageAlt: "Personal assistance in a home setting",
+    features: [
+      "Bathing, grooming, dressing, and toileting",
+      "Mobility, transfers, and walking assistance",
+      "Meal preparation and feeding support",
+      "Medication reminders",
+      "Light housekeeping and laundry",
+      "Appointment and activity assistance",
+      "Respite care and companionship",
+    ],
+  },
+  {
+    slug: "therapy-services",
+    title: "Therapy Services",
+    intro: "When authorized and available, therapy services may include:",
+    icon: "accessibility",
+    image: images.hands,
+    imageAlt: "Therapy support during a home care session",
+    therapyTypes: ["Physical therapy", "Occupational therapy", "Speech-language pathology"],
+    closingNote:
+      "Therapy services are designed to help individuals improve or maintain mobility, communication, swallowing, strength, coordination, safety, and daily functioning.",
+    availabilityDisclaimer: "When authorized and available.",
+  },
+  {
+    slug: "medical-social-services",
+    title: "Medical Social Services",
+    intro: "Medical social services may assist individuals and families with:",
+    icon: "users",
+    image: images.familyHome,
+    imageAlt: "A supportive conversation between a caregiver and client",
+    features: [
+      "Psychosocial assessments",
+      "Community-resource identification",
+      "Long-term care planning",
+      "Financial and social-resource referrals",
+      "Adjustment to illness or disability",
+      "Coordination with community organizations",
+      "Patient and family support",
+    ],
+  },
+];
+
+/** Card summaries for grids — links to /home-health# anchors */
 export const services: Service[] = [
   {
     slug: "skilled-private-duty-nursing",
-    title: "Skilled & Private Duty Nursing",
+    title: "Skilled and Private Duty Nursing",
     shortDescription:
       "Skilled and extended-hour nursing care for children and adults with medical and complex care needs.",
     fullDescription:
-      "Bravo provides skilled and extended-hour nursing care for children and adults with medical and complex care needs. Services may include health assessments, vital-sign monitoring, medication support, and coordination with the healthcare team.",
+      "We provide skilled and extended-hour nursing care for children and adults with medical and complex care needs.",
     icon: "stethoscope",
-    image: "/images/services/nursing.jpg",
-    imageAlt: "A caregiver providing in-home nursing support",
+    image: images.hands,
+    imageAlt: "Supportive in-home nursing care",
     category: "nursing",
-    features: [
-      "Health assessments",
-      "Vital-sign monitoring",
-      "Medication administration",
-      "Medication education",
-      "Chronic disease care",
-      "Wound care",
-      "Post-surgical care",
-      "Tracheostomy care",
-      "Ventilator care",
-      "Oxygen support",
-      "Respiratory care",
-      "G-tube feeding",
-      "Catheter care",
-      "Ostomy care",
-      "Seizure precautions",
-      "Aspiration precautions",
-      "Infection precautions",
-      "Skin precautions",
-      "Patient education",
-      "Caregiver education",
-      "Coordination with physicians",
-      "Coordination with the healthcare team",
-    ],
+    features: homeHealthSections[0].features ?? [],
   },
   {
     slug: "personal-assistance",
     title: "Personal Assistance Services",
     shortDescription:
       "Daily living support that promotes independence, safety, comfort, and dignity at home.",
-    fullDescription:
-      "Care professionals support daily living and independence through personal care, mobility assistance, household help, and companionship.",
+    fullDescription: "Our care professionals support daily living and independence.",
     icon: "heart-handshake",
-    image: "/images/services/personal-assistance.jpg",
-    imageAlt: "Daily living support in a home setting",
+    image: images.familyHome,
+    imageAlt: "Personal assistance in a home setting",
     category: "personal-assistance",
-    features: [
-      "Bathing",
-      "Grooming",
-      "Dressing",
-      "Toileting",
-      "Mobility support",
-      "Transfers",
-      "Walking assistance",
-      "Meal preparation",
-      "Feeding support",
-      "Medication reminders",
-      "Light housekeeping",
-      "Laundry",
-      "Appointment assistance",
-      "Activity assistance",
-      "Respite care",
-      "Companionship",
-    ],
+    features: homeHealthSections[1].features ?? [],
   },
   {
-    slug: "physical-therapy",
-    title: "Physical Therapy",
+    slug: "therapy-services",
+    title: "Therapy Services",
     shortDescription:
-      "Support for mobility, strength, coordination, safety, and daily functioning.",
+      "Physical therapy, occupational therapy, and speech-language pathology when authorized and available.",
     fullDescription:
-      "Physical therapy focuses on mobility, strength, coordination, safety, and daily functioning.",
+      "When authorized and available, therapy services may include physical therapy, occupational therapy, and speech-language pathology.",
     icon: "accessibility",
-    image: "/images/services/therapy.jpg",
-    imageAlt: "Mobility support during a home therapy session",
+    image: images.hands,
+    imageAlt: "Therapy support during a home care session",
     category: "therapy",
     availabilityDisclaimer: "When authorized and available.",
-    features: ["Mobility", "Strength", "Coordination", "Safety", "Daily functioning"],
-  },
-  {
-    slug: "occupational-therapy",
-    title: "Occupational Therapy",
-    shortDescription:
-      "Support for daily functioning, independence, safety, and coordination.",
-    fullDescription:
-      "Occupational therapy focuses on daily functioning, independence, safety, and coordination.",
-    icon: "hand-helping",
-    image: "/images/about/hands.jpg",
-    imageAlt: "Supportive hands during a care session",
-    category: "therapy",
-    availabilityDisclaimer: "When authorized and available.",
-    features: ["Daily functioning", "Independence", "Safety", "Coordination"],
-  },
-  {
-    slug: "speech-language-pathology",
-    title: "Speech-Language Pathology",
-    shortDescription:
-      "Support for communication, swallowing, and daily functioning.",
-    fullDescription:
-      "Speech-language pathology focuses on communication, swallowing, and daily functioning.",
-    icon: "message-circle",
-    image: "/images/about/family-home.jpg",
-    imageAlt: "A supportive conversation between a caregiver and client",
-    category: "therapy",
-    availabilityDisclaimer: "When authorized and available.",
-    features: ["Communication", "Swallowing", "Daily functioning"],
+    features: ["Physical therapy", "Occupational therapy", "Speech-language pathology"],
   },
   {
     slug: "medical-social-services",
     title: "Medical Social Services",
     shortDescription:
       "Support for individuals and families navigating resources, planning, and adjustment to care needs.",
-    fullDescription:
-      "Medical social services may assist individuals and families with psychosocial assessments, community resources, long-term care planning, and family support.",
+    fullDescription: "Medical social services may assist individuals and families with:",
     icon: "users",
-    image: "/images/about/care-team.jpg",
-    imageAlt: "A caregiver supporting a client during a home visit",
+    image: images.familyHome,
+    imageAlt: "A supportive conversation between a caregiver and client",
     category: "social",
-    features: [
-      "Psychosocial assessments",
-      "Community-resource identification",
-      "Long-term care planning",
-      "Financial-resource referrals",
-      "Social-resource referrals",
-      "Adjustment to illness",
-      "Adjustment to disability",
-      "Coordination with community organizations",
-      "Patient support",
-      "Family support",
-    ],
+    features: homeHealthSections[3].features ?? [],
   },
 ];
 
 export const footerServices = [
-  { label: "Skilled Nursing", href: "/services#skilled-private-duty-nursing" },
-  { label: "Private Duty Nursing", href: "/services#skilled-private-duty-nursing" },
-  { label: "Personal Assistance", href: "/services#personal-assistance" },
-  { label: "Physical Therapy", href: "/services#physical-therapy" },
-  { label: "Occupational Therapy", href: "/services#occupational-therapy" },
-  { label: "Speech-Language Pathology", href: "/services#speech-language-pathology" },
-  { label: "Medical Social Services", href: "/services#medical-social-services" },
+  { label: "Bravo Home Health", href: "/home-health" },
+  { label: "Bravo Residential", href: "/residential" },
+  { label: "Skilled and Private Duty Nursing", href: "/home-health#skilled-private-duty-nursing" },
+  { label: "Personal Assistance Services", href: "/home-health#personal-assistance" },
+  { label: "Therapy Services", href: "/home-health#therapy-services" },
+  { label: "Medical Social Services", href: "/home-health#medical-social-services" },
 ] as const;
 
 export function getService(slug: string) {
   return services.find((service) => service.slug === slug);
+}
+
+export function getHomeHealthSection(slug: string) {
+  return homeHealthSections.find((section) => section.slug === slug);
 }

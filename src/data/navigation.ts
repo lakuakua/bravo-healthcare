@@ -1,9 +1,8 @@
 export const navigation = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Home Health", href: "/home-health" },
-  { label: "Residential", href: "/residential" },
-  { label: "Services", href: "/services" },
+  { label: "Bravo Home Health", href: "/home-health" },
+  { label: "Bravo Residential", href: "/residential" },
   { label: "Referrals", href: "/referrals" },
   { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
@@ -16,11 +15,11 @@ export const footerLegal = [
 
 export const ctas = {
   getStarted: { label: "Get Started", href: "/contact" },
-  exploreServices: { label: "Explore Our Services", href: "/services" },
+  exploreServices: { label: "Explore Our Services", href: "/home-health" },
   contactCareTeam: { label: "Contact Our Care Team", href: "/contact" },
   makeReferral: { label: "Make a Referral", href: "/referrals" },
   speakWithTeam: { label: "Speak With Our Team", href: "/contact" },
-  exploreHomeHealth: { label: "Explore Home Health", href: "/home-health" },
+  exploreHomeHealth: { label: "Explore Bravo Home Health", href: "/home-health" },
   learnMore: { label: "Learn More", href: "/residential" },
   programUpdates: { label: "Receive Program Updates", href: "/residential" },
   requestCall: { label: "Request a Call", href: "/contact" },
@@ -29,11 +28,11 @@ export const ctas = {
   submitResume: { label: "Submit Your Resume", href: "/careers" },
   verifyCoverage: { label: "Verify Coverage", href: "/contact" },
   referAPatient: { label: "Refer a Patient", href: "/referrals" },
-  viewAllServices: { label: "View All Services", href: "/services" },
+  viewAllServices: { label: "Explore Bravo Home Health", href: "/home-health" },
 } as const;
 
 export const inquiryInterests = [
-  "Home Health",
+  "Bravo Home Health",
   "Skilled Nursing",
   "Private Duty Nursing",
   "Personal Assistance",
@@ -41,7 +40,7 @@ export const inquiryInterests = [
   "Occupational Therapy",
   "Speech-Language Pathology",
   "Medical Social Services",
-  "Residential Services",
+  "Bravo Residential",
   "Referral Information",
   "Careers",
   "Other",

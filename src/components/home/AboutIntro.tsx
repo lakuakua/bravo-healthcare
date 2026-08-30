@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, HeartHandshake, Home } from "lucide-react";
 import { company, divisions } from "@/data/company";
+import { images } from "@/data/images";
 import { ctas } from "@/data/navigation";
 
 export function AboutIntro() {
@@ -11,7 +12,7 @@ export function AboutIntro() {
         <div className="relative mx-auto w-full max-w-xl">
           <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
             <Image
-              src="/images/about/family-home.jpg"
+              src={images.familyHome}
               alt="A caregiver offering supportive, personal attention to a client"
               fill
               className="object-cover"
@@ -20,8 +21,8 @@ export function AboutIntro() {
           </div>
           <div className="absolute -bottom-8 -left-2 hidden w-48 overflow-hidden rounded-3xl border-8 border-white shadow-lg sm:block sm:w-56">
             <Image
-              src="/images/hero/home-care.jpg"
-              alt="A caregiver sitting with a client at home"
+              src={images.hands}
+              alt="Supportive hands during a care session"
               width={448}
               height={336}
               className="h-36 w-full object-cover"
@@ -30,8 +31,8 @@ export function AboutIntro() {
         </div>
         <div className="lg:pl-6">
           <p className="mb-3 text-sm font-semibold tracking-[0.18em] text-bravo-teal uppercase">About Us</p>
-          <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem]">Care Built Around the Individual.</h2>
-          <p className="mt-5 text-lg text-text-gray">{company.description}</p>
+          <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem]">Welcome to Bravo Healthcare</h2>
+          <p className="mt-5 text-lg text-text-gray">{company.welcome}</p>
           <div className="mt-8 space-y-6">
             <div className="flex gap-4">
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-pale-teal text-bravo-teal">
@@ -84,11 +85,12 @@ export function AboutIntro() {
           </span>
           <h3 className="mt-4 text-2xl">{divisions.residential.heading}</h3>
           <p className="mt-4 text-text-gray">{divisions.residential.description}</p>
+          <p className="mt-4 text-sm font-medium text-bravo-navy">{company.residentialComingSoon}</p>
           <Link
-            href={ctas.learnMore.href}
+            href={ctas.programUpdates.href}
             className="mt-6 inline-flex items-center gap-2 font-semibold text-bravo-navy"
           >
-            {ctas.learnMore.label}
+            {ctas.programUpdates.label}
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         </article>

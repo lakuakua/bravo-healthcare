@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { ServiceGrid } from "@/components/ui/ServiceCard";
 import { SectionHeading } from "@/components/sections/SectionHeading";
+import { company, divisions } from "@/data/company";
+import { images } from "@/data/images";
 import { ctas } from "@/data/navigation";
 import { services } from "@/data/services";
 
@@ -11,8 +13,8 @@ export function ServicesPreview() {
     <section>
       <div className="relative overflow-hidden bg-bravo-navy">
         <Image
-          src="/images/about/care-team.jpg"
-          alt="A caregiver supporting a client during in-home care"
+          src={images.familyHome}
+          alt="Compassionate home-based care"
           fill
           className="object-cover object-left opacity-55 [mask-image:linear-gradient(to_right,black_0%,black_28%,transparent_88%)] [-webkit-mask-image:linear-gradient(to_right,black_0%,black_28%,transparent_88%)]"
           sizes="100vw"
@@ -22,8 +24,9 @@ export function ServicesPreview() {
           <SectionHeading
             align="center"
             light
-            title="Comprehensive Care Designed Around Your Needs"
-            description="Services may include the following based on the individual’s assessed needs, physician’s orders, eligibility, authorization, and the agency’s approved service categories."
+            eyebrow={divisions.homeHealth.name}
+            title="Home Health Services"
+            description={company.homeHealthServicesNote}
           />
         </div>
       </div>

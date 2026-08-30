@@ -1,11 +1,12 @@
 import { CTASection } from "@/components/sections/CTASection";
+import { company } from "@/data/company";
 import { ctas } from "@/data/navigation";
 
 export function ReferralCta() {
   return (
     <CTASection
-      title="Referring a Patient or Client?"
-      description="Bravo accepts referrals from hospitals, rehabilitation facilities, physicians, case managers, and other healthcare providers."
+      title="Referrals"
+      description={company.referralsNote}
       primary={ctas.makeReferral}
       secondary={ctas.speakWithTeam}
     />

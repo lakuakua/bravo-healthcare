@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
-import { divisions } from "@/data/company";
+import { company, divisions } from "@/data/company";
+import { images } from "@/data/images";
 import { ctas } from "@/data/navigation";
 
 export function ResidentialComingSoon({ compact = false }: { compact?: boolean }) {
@@ -9,7 +10,7 @@ export function ResidentialComingSoon({ compact = false }: { compact?: boolean }
       <div className={compact ? "" : "mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-24"}>
         <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
           <Image
-            src="/images/residential/home.jpg"
+            src={images.residentialHome}
             alt="A welcoming home exterior representing Bravo Residential, coming soon"
             fill
             className="object-cover"
@@ -17,11 +18,15 @@ export function ResidentialComingSoon({ compact = false }: { compact?: boolean }
           />
         </div>
         <div>
-          <span className="inline-flex rounded-full bg-bravo-teal/10 px-3 py-1 text-xs font-semibold tracking-[0.18em] text-bravo-teal uppercase">
+          <p className="text-xs font-semibold tracking-[0.18em] text-bravo-teal uppercase">
+            {divisions.residential.name}
+          </p>
+          <span className="mt-2 inline-flex rounded-full bg-bravo-teal/10 px-3 py-1 text-xs font-semibold tracking-[0.18em] text-bravo-teal uppercase">
             {divisions.residential.badge}
           </span>
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-[2.6rem]">{divisions.residential.heading}.</h2>
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-[2.6rem]">{divisions.residential.heading}</h2>
           <p className="mt-5 text-lg text-text-gray">{divisions.residential.description}</p>
+          <p className="mt-4 text-sm font-medium text-bravo-navy">{company.residentialComingSoon}</p>
           <div className="mt-8">
             <Button href={ctas.programUpdates.href}>{ctas.programUpdates.label}</Button>
           </div>

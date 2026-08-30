@@ -4,8 +4,8 @@ import { PageHero } from "@/components/sections/PageHero";
 import { MissionSection } from "@/components/sections/MissionSection";
 import { CTASection } from "@/components/sections/CTASection";
 import { ServiceArea } from "@/components/home/ServiceArea";
-import { WhyChooseBravo } from "@/components/home/WhyChooseBravo";
 import { company, divisions } from "@/data/company";
+import { images } from "@/data/images";
 import { ctas } from "@/data/navigation";
 
 export const metadata: Metadata = {
@@ -18,9 +18,9 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About Bravo Healthcare"
-        title="Care built around the individual."
-        description={company.description}
-        image="/images/about/family-home.jpg"
+        title="Welcome to Bravo Healthcare"
+        description={company.welcome}
+        image={images.familyHome}
         imageAlt="A caregiver offering personal support to a Bravo Healthcare client"
         primary={ctas.contactUs}
       />
@@ -29,8 +29,8 @@ export default function AboutPage() {
           <div className="relative mx-auto w-full max-w-xl">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
               <Image
-                src="/images/hero/home-care.jpg"
-                alt="A caregiver sitting with a client at home"
+                src={images.hands}
+                alt="Supportive hands during a care session"
                 fill
                 className="object-cover"
                 sizes="(min-width: 1024px) 40vw, 100vw"
@@ -38,7 +38,7 @@ export default function AboutPage() {
             </div>
             <div className="absolute -right-4 -bottom-8 hidden w-52 overflow-hidden rounded-3xl border-8 border-white shadow-lg sm:block">
               <Image
-                src="/images/about/family-home.jpg"
+                src={images.familyHome}
                 alt="A supportive care conversation"
                 width={416}
                 height={312}
@@ -48,16 +48,8 @@ export default function AboutPage() {
           </div>
           <div>
             <p className="mb-3 text-sm font-semibold tracking-[0.18em] text-bravo-teal uppercase">Who We Are</p>
-            <h2 className="text-3xl sm:text-4xl">Bravo Healthcare</h2>
-            <p className="mt-5 text-lg text-text-gray">
-              Bravo Healthcare represents Bravo Home Health and Bravo Residential. We provide compassionate
-              care and dependable support at home and in residential settings, helping individuals live
-              safely, comfortably, and independently.
-            </p>
-            <p className="mt-4 text-lg text-text-gray">
-              We focus on personalized support that promotes comfort, dignity, and well-being for clients
-              and their caregivers.
-            </p>
+            <h2 className="text-3xl sm:text-4xl">{company.name}</h2>
+            <p className="mt-5 text-lg text-text-gray">{company.welcome}</p>
           </div>
         </div>
       </section>
@@ -75,21 +67,13 @@ export default function AboutPage() {
             <h2 className="mt-2 text-2xl">{divisions.residential.name}</h2>
             <p className="mt-3 text-lg font-medium text-bravo-navy">{divisions.residential.heading}</p>
             <p className="mt-4 text-text-gray">{divisions.residential.description}</p>
+            <p className="mt-4 text-sm font-medium text-bravo-navy">{company.residentialComingSoon}</p>
           </article>
         </div>
       </section>
       <MissionSection />
-      <WhyChooseBravo />
-      <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
-        <h2 className="text-3xl">Our Approach to Care</h2>
-        <p className="mt-4 text-lg text-text-gray">
-          We focus on personalized support that promotes comfort, dignity, and well-being for clients
-          and their caregivers. Services may depend on assessed needs, physician orders, eligibility,
-          authorization, and approved service categories.
-        </p>
-      </section>
       <ServiceArea />
-      <CTASection title="Let’s Discuss How Bravo Healthcare Can Help." primary={ctas.contactUs} />
+      <CTASection title="Let's Discuss How Bravo Healthcare Can Help." primary={ctas.contactUs} />
     </>
   );
 }

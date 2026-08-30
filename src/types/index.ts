@@ -10,3 +10,16 @@ export type Service = {
   category: string;
   availabilityDisclaimer?: string;
 };
+
+export type HomeHealthSection = {
+  slug: string;
+  title: string;
+  intro: string;
+  icon: string;
+  image: string;
+  imageAlt: string;
+  features?: string[];
+  therapyTypes?: string[];
+  closingNote?: string;
+  availabilityDisclaimer?: string;
+};

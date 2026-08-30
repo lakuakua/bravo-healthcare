@@ -1,27 +1,29 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { EmergencyNotice } from "@/components/ui/EmergencyNotice";
+import { InsuranceNotice } from "@/components/sections/InsuranceNotice";
 import { PageHero } from "@/components/sections/PageHero";
 import { company } from "@/data/company";
+import { images } from "@/data/images";
 import { serviceCounties } from "@/data/counties";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Contact Bravo Healthcare to discuss home health services, referrals, or career information.",
+  description: company.contactIntro,
 };
 
 export default function ContactPage() {
   return (
     <>
       <PageHero
-        title="Let’s Discuss How Bravo Healthcare Can Help"
-        description="Whether you need home health services, residential program updates, referral assistance, or career information, our team is ready to speak with you."
-        image="/images/hero/home-care.jpg"
-        imageAlt="A Bravo caregiver sitting with a client at home"
+        title="Let's Discuss How Bravo Healthcare Can Help"
+        description={company.contactIntro}
+        image={images.familyHome}
+        imageAlt="A Bravo caregiver offering supportive home-based care"
       />
       <section className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2">
         <div>
-          <h2 className="text-3xl">Office</h2>
+          <h2 className="text-3xl">{company.name}</h2>
           <address className="mt-5 space-y-3 text-lg not-italic text-text-gray">
             <p>
               {company.address.street}
@@ -49,6 +51,7 @@ export default function ContactPage() {
           <ContactForm heading="Send a message" idPrefix="contact-" />
         </div>
       </section>
+      <InsuranceNotice />
       <section className="px-4 pb-16 sm:px-6">
         <div className="mx-auto max-w-7xl overflow-hidden rounded-3xl border border-light-gray">
           <iframe

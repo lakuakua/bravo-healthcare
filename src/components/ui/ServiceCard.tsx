@@ -25,7 +25,7 @@ export function ServiceCard({ service }: { service: Service }) {
           <p className="mt-3 text-sm text-text-gray">{service.availabilityDisclaimer}</p>
         ) : null}
         <Link
-          href={`/services#${service.slug}`}
+          href={`/home-health#${service.slug}`}
           className="mt-5 text-sm font-semibold text-bravo-teal hover:text-bravo-navy"
         >
           Learn More
