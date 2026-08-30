@@ -1,0 +1,22 @@
+---
+description: Bravo Healthcare folder structure, data files, and reusable components
+globs: **/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Bravo Healthcare — Architecture
+
+Keep company facts in data files. Do not hard-code services, counties, nav, or contact info across pages.
+
+- `src/data/company.ts`
+- `src/data/navigation.ts`
+- `src/data/services.ts` — `Service` type with slug, title, short/full description, icon, features, category, optional availabilityDisclaimer
+- `src/data/counties.ts` — only the 15 approved Texas HHSC Region 6 counties
+
+Reusable components: UtilityBar, Header, DesktopNavigation, MobileNavigation, Footer, HeroSection, SectionHeading, ServiceCard, ServiceGrid, CTASection, ContactForm, ReferralForm, CountyGrid, Breadcrumb, ResidentialComingSoon, EmergencyNotice, MissionSection, InsuranceNotice, ImageTextSection.
+
+Prefer extending existing section components over creating page-specific duplicates.
+
+Code quality: TypeScript, no `any`, server components by default, client components only for interaction. Use `next/image`. Accessible labels, visible focus, skip-to-content. No giant components or duplicate markup.
+
+Service availability always depends on assessed needs, physician orders, eligibility, authorization, and approved service categories. Therapy: “When authorized and available.”

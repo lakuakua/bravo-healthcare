@@ -1,0 +1,35 @@
+---
+description: Bravo Healthcare pages, navigation, homepage section order, and CTAs
+alwaysApply: true
+---
+
+# Bravo Healthcare — Pages and CTAs
+
+Primary nav: Home, About, Home Health, Residential, Services, Referrals, Careers, Contact.
+
+Primary CTA: `Get Started`. Secondary professional CTA: `Make a Referral`.
+
+Pages: Home, About, Home Health, Residential, Services, Referrals, Careers, Contact, Privacy Policy, Accessibility.
+
+## Homepage order
+
+1. Utility bar — Serving Texas HHSC Region 6 · admin@bravohcs.com · Mon–Fri 9:00 AM–5:00 PM · Refer a Patient
+2. Header — logo, nav, Get Started (sticky after scroll)
+3. Hero — “Compassionate Care. Right Where You Call Home.” Explore Our Services / Contact Our Care Team. Serving eligible individuals and families throughout Texas HHSC Region 6
+4. Quick inquiry — How Can We Help? (no PHI fields)
+5. About intro — Welcome + two division cards (Residential COMING SOON)
+6. Services — six cards from `services.ts`
+7. Why Choose Bravo — Personalized Care, Compassion & Dignity, Coordinated Care, Independence, Family Support
+8. Mission — official mission on navy background
+9. How Care Begins — four steps + eligibility qualifier
+10. Referral CTA
+11. Service area — all 15 counties; do not imply statewide coverage
+12. Residential coming soon
+13. Insurance disclaimer
+14. Careers CTA — do not claim open jobs unless supplied
+15. Final CTA
+16. Footer — brand, quick links, services, contact, 911, privacy/accessibility, © 2026 Bravo Healthcare
+
+Approved CTAs only: Get Started, Explore Our Services, Contact Our Care Team, Make a Referral, Speak With Our Team, Explore Home Health, Learn More, Receive Program Updates, Request a Call, Contact Us, View Opportunities, Submit Your Resume, Verify Coverage.
+
+Hide empty states: no jobs copy, no testimonial section, no phone field, insurance notice instead of logos.

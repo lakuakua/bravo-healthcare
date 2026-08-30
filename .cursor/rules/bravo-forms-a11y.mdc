@@ -1,0 +1,27 @@
+---
+description: Bravo Healthcare forms, accessibility, SEO, and performance
+globs: **/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Bravo Healthcare — Forms, a11y, SEO
+
+## Forms
+
+React Hook Form + Zod. Visible labels, accessible errors, keyboard focus, success/error states, mobile-friendly, prevent duplicate submits. Mock submission first; do not send PHI until a secure backend exists.
+
+Public contact fields: Name, Phone, Email, Service Interest, Message. Do not request SSN, diagnoses, medications, medical records, or insurance IDs.
+
+Error copy: “We couldn't submit your request. Please try again.” Network: “Something went wrong while sending your request. Please try again or contact our office by email.”
+
+## Accessibility
+
+Target WCAG 2.2 AA. Semantic HTML, heading hierarchy, skip-to-content, visible focus, contrast, reduced-motion, accessible mobile menu. Do not use color as the only state indicator.
+
+Responsive at 320, 375, 430, 768, 1024, 1280, 1440, 1920. No horizontal scroll.
+
+## SEO and performance
+
+Unique titles/descriptions, Open Graph, sitemap, robots, canonical, semantic headings, alt text. Geographic focus: Texas HHSC Region 6 counties only. Structured data: verified facts only (no phone, ratings, founding date, social, insurance).
+
+Use `next/image`, lazy-load below-fold, prioritize hero. Server components by default. Aim Lighthouse Performance 90+, a11y/SEO/best-practices 95+.

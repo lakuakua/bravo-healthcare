@@ -1,0 +1,30 @@
+---
+description: Bravo Healthcare project overview, source of truth, and tech stack
+alwaysApply: true
+---
+
+# Bravo Healthcare — Core
+
+Build a professional, modern, accessible healthcare website for **Bravo Healthcare**, which represents **Bravo Home Health** and **Bravo Residential**. Present Bravo Healthcare as the primary brand while clearly separating the two divisions.
+
+Core message: compassionate care and dependable support in home and residential settings, helping individuals live safely, comfortably, and independently.
+
+## Source of truth
+
+Approved content lives in `reference/bravo-healthcare-content.md` and `reference/source-documents/`. Official mission:
+
+> Our mission is to improve the quality of life of every individual we serve by providing personalized care that promotes comfort, dignity, and well-being for clients and their caregivers.
+
+## Do not invent
+
+Never invent services, certifications, licenses, insurance/Medicare/Medicaid participation, statistics, testimonials, reviews, phone/fax numbers, extra locations, 24/7 availability, emergency services, residential availability, or clinical outcomes. If information is missing, omit it or use a clearly marked placeholder. Never present a placeholder as real.
+
+## Tech stack
+
+Next.js App Router, TypeScript, Tailwind CSS, Lucide React, Framer Motion, React Hook Form, Zod. Host on Vercel. Prefer native Next.js. Do not add unnecessary libraries.
+
+Use [noellephilips.com](https://noellephilips.com/) only as design/structure inspiration. Do not copy wording, layout, branding, images, or code.
+
+## Cursor behavior
+
+Inspect existing architecture first. Reuse components and data files. Preserve brand styles and approved wording. Verify mobile layouts. Run TypeScript checks after major changes. Maintain accessibility.

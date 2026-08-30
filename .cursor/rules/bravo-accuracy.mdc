@@ -1,0 +1,48 @@
+---
+description: Mandatory accuracy rules — residential, insurance, contact, testimonials, statistics
+alwaysApply: true
+---
+
+# Bravo Healthcare — Accuracy (mandatory)
+
+## Residential
+
+Whenever Bravo Residential appears, it is **COMING SOON** / being developed. Never imply it is operating, accepting residents, or has available beds.
+
+Primary residential CTA: `Receive Program Updates`.
+
+## Contact
+
+```
+Bravo Healthcare
+1601 Industrial Blvd, Ste 3059
+Sugar Land, Texas 77478
+Email: admin@bravohcs.com
+Office Hours: Monday–Friday, 9:00 a.m.–5:00 p.m.
+```
+
+Do not invent phone or fax numbers. Hide those fields until real numbers are supplied. Do not add extra locations.
+
+Emergency notice (required, not the primary CTA): `For medical emergencies, call 911.` Website forms are not emergency channels.
+
+## Insurance
+
+Approved wording only:
+
+> Please contact our office to verify current payer participation. Coverage, eligibility, authorization, and benefits must be verified before services begin. Acceptance of an insurance plan does not guarantee payment.
+
+Do not display insurer logos. Do not claim Medicare, Medicaid, or private insurance acceptance.
+
+## Testimonials and statistics
+
+Never fabricate testimonials, names, star ratings, or Google reviews. Hide the testimonial section if data is empty.
+
+Never fabricate counters (clients served, caregivers, years, satisfaction scores).
+
+## Healthcare language
+
+Do not automatically call Bravo licensed, certified, accredited, Medicare/Medicaid-certified, HIPAA-compliant, award-winning, or nationally recognized. Do not claim services will cure, guarantee recovery, prevent hospitalization, or guarantee independence.
+
+Do not claim the website is HIPAA compliant. Do not collect PHI (SSN, diagnoses, medications, insurance IDs) on public marketing forms.
+
+If requested content conflicts with approved source files, flag the conflict and keep the approved version unless explicitly told to update it.

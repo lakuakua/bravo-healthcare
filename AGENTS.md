@@ -1,3 +1,7 @@
+# Bravo Healthcare
+
+Follow `.cursor/rules/` and `reference/bravo-healthcare-content.md`. Do not invent contact numbers, insurance participation, testimonials, statistics, or residential availability. Bravo Residential is coming soon.
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 # This is NOT the Next.js you know

@@ -1,0 +1,40 @@
+---
+description: Bravo Healthcare brand colors, typography, design, and photography
+alwaysApply: true
+---
+
+# Bravo Healthcare — Brand and design
+
+Official logo: `/public/images/logo/bravo-healthcare-logo.png`. Do not redraw, stretch, distort, or recolor it. Keep whitespace around it.
+
+## Colors
+
+```css
+--bravo-navy: #012A62;
+--bravo-blue: #003B7A;
+--bravo-teal: #0198A1;
+--bravo-light-teal: #8FD4DB;
+--bravo-red: #DD1B23;
+--off-white: #F7FAFC;
+--light-gray: #EDF2F7;
+--text-dark: #182230;
+--text-gray: #586474;
+```
+
+Navy: headings, nav, primary buttons, footer, major CTAs. Teal: icons, accents, secondary buttons, hover, pills. Red: sparingly (medical accent only). Backgrounds: white, off-white, pale blue/teal. Avoid excessive gradients.
+
+## Typography
+
+Headings: Manrope. Body: Inter. Use `next/font`. Hero heading `clamp(2.5rem, 5vw, 4.75rem)`. Body at least 16px; prefer 18px for marketing copy.
+
+## Aesthetic
+
+Clean + Premium + Warm + Professional + Modern. Communicate trust, compassion, safety, independence, family support. Feel **Home + Care + Trust**, not hospital/illness. Avoid generic templates, ER/surgical stock, cheap home-care look.
+
+UI: generous whitespace, 12px–24px radius, minimal shadows, large type, clear CTA hierarchy, consistent Lucide icons. Section spacing 80–120px desktop, 64–80px tablet, 48–64px mobile.
+
+Motion: Framer Motion sparingly (fade-up, short slide, hover). Support `prefers-reduced-motion`. No parallax, cursor-followers, or constant movement.
+
+Photography: natural, warm, diverse, residential. Avoid AI artifacts, overly clinical scenes, sad imagery, emergencies, and visible PHI.
+
+Content tone: warm, professional, clear. Prefer “We support…” over “We guarantee…”. Prefer “Services may include…” where availability varies. Avoid hype, fear, and unsupported superlatives.
