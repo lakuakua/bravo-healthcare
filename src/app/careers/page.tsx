@@ -18,7 +18,7 @@ export default function CareersPage() {
         title="Careers"
         description={company.contactIntro}
         image={images.careersTeam}
-        imageAlt="A caregiver and client sharing a supportive moment"
+        imageAlt="Members of a healthcare team standing together"
       />
       <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
         <h2 className="text-3xl">Career Information</h2>

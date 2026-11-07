@@ -3,20 +3,20 @@ import { images } from "@/data/images";
 
 const sectionImages: Record<string, { image: string; imageAlt: string }> = {
   "skilled-private-duty-nursing": {
-    image: images.nursing,
-    imageAlt: "A caregiver providing in-home nursing support",
+    image: images.nursingCare,
+    imageAlt: "A nurse checking a client's blood pressure during a visit",
   },
   "personal-assistance": {
-    image: images.personalAssistance,
-    imageAlt: "Daily living support in a home setting",
+    image: images.personalCare,
+    imageAlt: "A care professional helping a client with a walker",
   },
   "therapy-services": {
-    image: images.therapy,
-    imageAlt: "Mobility support during a home therapy session",
+    image: images.therapySession,
+    imageAlt: "Hand exercises with a therapy ball during a home session",
   },
   "medical-social-services": {
-    image: images.careTeam,
-    imageAlt: "A caregiver supporting a client during a home visit",
+    image: images.socialSupport,
+    imageAlt: "A social worker taking notes while meeting with a client at home",
   },
 };
 

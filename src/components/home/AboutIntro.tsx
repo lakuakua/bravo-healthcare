@@ -21,8 +21,8 @@ export function AboutIntro() {
           </div>
           <div className="absolute -bottom-8 -left-2 hidden w-48 overflow-hidden rounded-3xl border-8 border-white shadow-lg sm:block sm:w-56">
             <Image
-              src={images.careTeam}
-              alt="A caregiver supporting a client during a home visit"
+              src={images.careCoordination}
+              alt="A care coordinator on a call in a client's home"
               width={448}
               height={336}
               className="h-36 w-full object-cover"

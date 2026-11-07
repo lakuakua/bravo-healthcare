@@ -24,8 +24,8 @@ export default function HomeHealthPage() {
         eyebrow={divisions.homeHealth.name}
         title={divisions.homeHealth.heading}
         description={divisions.homeHealth.description}
-        image={images.personalAssistance}
-        imageAlt="Home-based care between a Bravo caregiver and client"
+        image={images.consultation}
+        imageAlt="A nurse assessing a client during a home health visit"
         primary={ctas.contactCareTeam}
         secondary={ctas.makeReferral}
       />

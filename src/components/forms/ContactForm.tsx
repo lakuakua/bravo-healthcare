@@ -2,21 +2,15 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/Button";
 import { inquiryInterests } from "@/data/navigation";
 import { cn } from "@/lib/cn";
+import { TurnstileField } from "@/components/forms/TurnstileField";
+import { turnstileEnabledOnClient } from "@/lib/turnstile-config";
+import { HONEYPOT_FIELD, contactSchema, type ContactValues } from "@/lib/schemas";
 
-const schema = z.object({
-  name: z.string().min(2, "Please enter your full name."),
-  phone: z.string().min(7, "Please enter a phone number."),
-  email: z.string().email("Please enter a valid email address."),
-  interest: z.string().min(1, "Please select a service interest."),
-  message: z.string().min(8, "Please share a short message."),
-});
-
-type FormValues = z.infer<typeof schema>;
+type FormValues = ContactValues;
 
 export function ContactForm({
   heading = "How Can We Help?",
@@ -30,20 +24,34 @@ export function ContactForm({
   submitLabel?: string;
 }) {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [honeypot, setHoneypot] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const turnstileRequired = turnstileEnabledOnClient();
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(contactSchema),
     defaultValues: { name: "", phone: "", email: "", interest: "", message: "" },
   });
 
-  async function onSubmit() {
+  async function onSubmit(values: FormValues) {
+    setStatus("idle");
     try {
-      await new Promise((resolve) => setTimeout(resolve, 600));
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...values,
+          [HONEYPOT_FIELD]: honeypot,
+          ...(turnstileToken ? { turnstileToken } : {}),
+        }),
+      });
+      if (!response.ok) throw new Error(`Request failed: ${response.status}`);
       setStatus("success");
+      setTurnstileToken("");
       reset();
     } catch {
       setStatus("error");
@@ -102,7 +110,24 @@ export function ContactForm({
         <textarea id={`${idPrefix}message`} rows={compact ? 3 : 4} className={field} {...register("message")} />
         {errors.message ? <p className="mt-1 text-sm text-bravo-red">{errors.message.message}</p> : null}
       </div>
-      <Button type="submit" disabled={isSubmitting} variant="secondary" className="w-full sm:w-auto">
+      <div aria-hidden="true" className="hidden">
+        <label htmlFor={`${idPrefix}${HONEYPOT_FIELD}`}>Leave this field empty</label>
+        <input
+          id={`${idPrefix}${HONEYPOT_FIELD}`}
+          name={HONEYPOT_FIELD}
+          tabIndex={-1}
+          autoComplete="off"
+          value={honeypot}
+          onChange={(event) => setHoneypot(event.target.value)}
+        />
+      </div>
+      <TurnstileField onToken={setTurnstileToken} onExpire={() => setTurnstileToken("")} />
+      <Button
+        type="submit"
+        disabled={isSubmitting || (turnstileRequired && !turnstileToken)}
+        variant="secondary"
+        className="w-full sm:w-auto"
+      >
         {isSubmitting ? "Sending…" : submitLabel}
       </Button>
       {status === "success" ? (

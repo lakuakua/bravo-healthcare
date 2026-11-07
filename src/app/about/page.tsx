@@ -21,8 +21,8 @@ export default function AboutPage() {
         eyebrow="About Bravo Healthcare"
         title="Welcome to Bravo Healthcare"
         description={company.welcome}
-        image={images.familyHome}
-        imageAlt="A caregiver offering personal support to a Bravo Healthcare client"
+        image={images.familySupport}
+        imageAlt="A family meeting with a care planner in a comfortable living room"
         primary={ctas.contactUs}
       />
       <section className="px-4 py-16 sm:px-6 lg:py-24">
@@ -30,8 +30,8 @@ export default function AboutPage() {
           <div className="relative mx-auto w-full max-w-xl">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
               <Image
-                src={images.hands}
-                alt="Supportive hands during a care session"
+                src={images.nursePortrait}
+                alt="A Bravo Healthcare nurse reviewing a client care plan"
                 fill
                 className="object-cover"
                 sizes="(min-width: 1024px) 40vw, 100vw"
@@ -39,8 +39,8 @@ export default function AboutPage() {
             </div>
             <div className="absolute -right-4 -bottom-8 hidden w-52 overflow-hidden rounded-3xl border-8 border-white shadow-lg sm:block">
               <Image
-                src={images.familyHome}
-                alt="A supportive care conversation"
+                src={images.carePlanning}
+                alt="A care planner connecting with a family by video"
                 width={416}
                 height={312}
                 className="h-36 w-full object-cover"

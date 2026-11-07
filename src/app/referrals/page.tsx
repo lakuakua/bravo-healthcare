@@ -23,8 +23,8 @@ export default function ReferralsPage() {
       <PageHero
         title="Referrals"
         description={company.referralsNote}
-        image={images.careTeam}
-        imageAlt="A caregiver supporting a client during a home visit"
+        image={images.physician}
+        imageAlt="A physician in a professional care setting"
         primary={ctas.speakWithTeam}
       />
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">

@@ -24,8 +24,8 @@ export default function ServicesPage() {
         eyebrow="Our Services"
         title="Bravo Home Health and Bravo Residential"
         description={company.welcome}
-        image={images.nursing}
-        imageAlt="A caregiver providing in-home support"
+        image={images.wellbeing}
+        imageAlt="An individual enjoying a calm, independent moment outdoors"
         primary={ctas.exploreHomeHealth}
         secondary={ctas.programUpdates}
       />

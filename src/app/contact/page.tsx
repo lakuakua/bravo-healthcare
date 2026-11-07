@@ -18,8 +18,8 @@ export default function ContactPage() {
       <PageHero
         title="Let's Discuss How Bravo Healthcare Can Help"
         description={company.contactIntro}
-        image={images.nursing}
-        imageAlt="A Bravo caregiver offering supportive home-based care"
+        image={images.office}
+        imageAlt="A member of the Bravo Healthcare team at work"
       />
       <section className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2">
         <div>
@@ -30,6 +30,12 @@ export default function ContactPage() {
               <br />
               {company.address.city}, {company.address.state} {company.address.zip}
             </p>
+            <p>
+              <a href={company.phone.href} className="font-medium text-bravo-navy">
+                {company.phone.display}
+              </a>
+            </p>
+            <p>Fax: {company.fax}</p>
             <p>
               <a href={`mailto:${company.email}`} className="font-medium text-bravo-navy">
                 {company.email}

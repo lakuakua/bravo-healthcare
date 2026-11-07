@@ -2,35 +2,27 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/Button";
 import { referralServices } from "@/data/navigation";
+import { TurnstileField } from "@/components/forms/TurnstileField";
+import { turnstileEnabledOnClient } from "@/lib/turnstile-config";
+import { HONEYPOT_FIELD, referralSchema, type ReferralValues } from "@/lib/schemas";
 
-const schema = z.object({
-  sourceName: z.string().min(2, "Please enter your name."),
-  organization: z.string().min(2, "Please enter your organization."),
-  sourcePhone: z.string().min(7, "Please enter a phone number."),
-  sourceEmail: z.string().email("Please enter a valid email address."),
-  clientName: z.string().min(2, "Please enter the client name."),
-  clientPhone: z.string().min(7, "Please enter a preferred phone number."),
-  county: z.string().min(2, "Please enter the county."),
-  service: z.string().min(1, "Please select a requested service."),
-  notes: z.string().optional(),
-  consent: z.boolean().refine((value) => value, "Please confirm before submitting."),
-});
-
-type FormValues = z.infer<typeof schema>;
+type FormValues = ReferralValues;
 
 export function ReferralForm() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [honeypot, setHoneypot] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const turnstileRequired = turnstileEnabledOnClient();
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(referralSchema),
     defaultValues: {
       sourceName: "",
       organization: "",
@@ -45,10 +37,21 @@ export function ReferralForm() {
     },
   });
 
-  async function onSubmit() {
+  async function onSubmit(values: FormValues) {
+    setStatus("idle");
     try {
-      await new Promise((resolve) => setTimeout(resolve, 600));
+      const response = await fetch("/api/referral", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...values,
+          [HONEYPOT_FIELD]: honeypot,
+          ...(turnstileToken ? { turnstileToken } : {}),
+        }),
+      });
+      if (!response.ok) throw new Error(`Request failed: ${response.status}`);
       setStatus("success");
+      setTurnstileToken("");
       reset();
     } catch {
       setStatus("error");
@@ -145,7 +148,19 @@ export function ReferralForm() {
         not include unnecessary medical details.
       </label>
       {errors.consent ? <p className="text-sm text-bravo-red">{errors.consent.message}</p> : null}
-      <Button type="submit" disabled={isSubmitting}>
+      <div aria-hidden="true" className="hidden">
+        <label htmlFor={`referral-${HONEYPOT_FIELD}`}>Leave this field empty</label>
+        <input
+          id={`referral-${HONEYPOT_FIELD}`}
+          name={HONEYPOT_FIELD}
+          tabIndex={-1}
+          autoComplete="off"
+          value={honeypot}
+          onChange={(event) => setHoneypot(event.target.value)}
+        />
+      </div>
+      <TurnstileField onToken={setTurnstileToken} onExpire={() => setTurnstileToken("")} />
+      <Button type="submit" disabled={isSubmitting || (turnstileRequired && !turnstileToken)}>
         {isSubmitting ? "Submitting…" : "Submit"}
       </Button>
       {status === "success" ? (

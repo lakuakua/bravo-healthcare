@@ -2,6 +2,11 @@ export const company = {
   name: "Bravo Healthcare",
   legalName: "Bravo Healthcare",
   email: "admin@bravohcs.com",
+  phone: {
+    display: "(346) 538-8451",
+    href: "tel:+13465388451",
+  },
+  fax: "(281) 715-4115",
   address: {
     street: "1601 Industrial Blvd, Ste 3059",
     city: "Sugar Land",
